@@ -7,16 +7,18 @@ var builder = WebApplication.CreateBuilder(args);
 // 1. Add services to the container.
 builder.Services.AddControllers();
 
-// إضافة خدمات الـ Swagger
+//  Swagger
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// تسجيل الـ DbContext
+//  DbContext
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// تسجيل الـ Application Services
+//  Application Services
 builder.Services.AddScoped<IPatientService, PatientService>();
+builder.Services.AddScoped<IDoctorService, DoctorService>();
+
 
 var app = builder.Build();
 
@@ -24,11 +26,11 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI(); // تفعيل واجهة الـ Swagger الرسمية
+    app.UseSwaggerUI();
+
+    app.UseHttpsRedirection();
+    app.UseAuthorization();
+    app.MapControllers();
+
+    app.Run();
 }
-
-app.UseHttpsRedirection();
-app.UseAuthorization();
-app.MapControllers();
-
-app.Run();
