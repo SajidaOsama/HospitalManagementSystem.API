@@ -19,6 +19,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddScoped<IPatientService, PatientService>();
 builder.Services.AddScoped<IDoctorService, DoctorService>();
 builder.Services.AddScoped<IReceptionistService, ReceptionistService>();
+builder.Services.AddScoped<IAppointmentService, AppointmentService>();
 
 
 var app = builder.Build();
