@@ -8,9 +8,9 @@ namespace HospitalManagementSystem.Domain.Entities
     {
         public Guid Id { get; set; } = Guid.NewGuid();
         public DateTime AppointmentDate { get; set; }
-        public string Status { get; set; } = "Scheduled"; // حالة الموعد (Scheduled, Completed, Cancelled)
+        public string Status { get; set; } = "Scheduled"; //  (Scheduled, Completed, Cancelled)
 
-        // Foreign Keys والعلاقات
+        // Foreign Keys
         public int PatientId { get; set; }
         public Patient Patient { get; set; } = null!;
 
