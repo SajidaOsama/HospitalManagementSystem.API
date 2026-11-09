@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using HospitalManagementSystem.Application.DTOs;
+using HospitalManagementSystem.Application.DTOs.Receptionist;
 
-namespace HospitalManagementSystem.Application.Services
+namespace HospitalManagementSystem.Application.Services.Receptionist
 {
     public interface IReceptionistService
     {

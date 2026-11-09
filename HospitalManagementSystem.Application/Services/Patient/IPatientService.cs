@@ -1,7 +1,7 @@
-﻿using HospitalManagementSystem.Application.DTOs;
+﻿using HospitalManagementSystem.Application.DTOs.Patient;
 using HospitalManagementSystem.Domain.Entities;
 
-namespace HospitalManagementSystem.Application.Services
+namespace HospitalManagementSystem.Application.Services.Patient
 {
     public interface IPatientService
     {

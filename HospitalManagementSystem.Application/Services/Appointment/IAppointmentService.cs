@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using HospitalManagementSystem.Application.DTOs;
+using HospitalManagementSystem.Application.DTOs.Appointment;
 
-namespace HospitalManagementSystem.Application.Services
+namespace HospitalManagementSystem.Application.Services.Appointment
 {
     public interface IAppointmentService
     {

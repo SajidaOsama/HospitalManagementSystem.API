@@ -1,13 +1,12 @@
-﻿using HospitalManagementSystem.Application.DTOs;
-using HospitalManagementSystem.Application.Services;
-using HospitalManagementSystem.Domain.Entities;
+﻿using HospitalManagementSystem.Domain.Entities;
 using HospitalManagementSystem.Infrastructure.Data;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
-
-namespace HospitalManagementSystem.Application.Services
+using HospitalManagementSystem.Application.DTOs.Patient;
+using PatientEntity = HospitalManagementSystem.Domain.Entities.Patient;
+namespace HospitalManagementSystem.Application.Services.Patient
 {
     public class PatientService : IPatientService
     {
@@ -48,7 +47,7 @@ namespace HospitalManagementSystem.Application.Services
 
         public async Task<PatientDto> CreatePatientAsync(CreatePatientDto dto)
         {
-            var patient = new Patient
+            var patient = new PatientEntity
             {
                 Name = dto.Name,
                 Age = dto.Age,

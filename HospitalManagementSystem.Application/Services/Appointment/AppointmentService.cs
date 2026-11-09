@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using HospitalManagementSystem.Application.DTOs;
+using HospitalManagementSystem.Application.DTOs.Appointment;
 using HospitalManagementSystem.Domain.Entities;
 using HospitalManagementSystem.Infrastructure.Data;
+using AppointmentEntity = HospitalManagementSystem.Domain.Entities.Appointment;
 using Microsoft.EntityFrameworkCore;
 
-namespace HospitalManagementSystem.Application.Services
+namespace HospitalManagementSystem.Application.Services.Appointment
 {
     public class AppointmentService : IAppointmentService
     {
@@ -65,7 +66,7 @@ namespace HospitalManagementSystem.Application.Services
 
         public async Task<AppointmentDto> CreateAppointmentAsync(CreateAppointmentDto dto)
         {
-            var appointment = new Appointment
+            var appointment = new AppointmentEntity
             {
                 AppointmentDate = dto.AppointmentDate,
                 PatientId = dto.PatientId,

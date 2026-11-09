@@ -1,5 +1,5 @@
-﻿using HospitalManagementSystem.Application.DTOs;
-using HospitalManagementSystem.Application.Services;
+﻿using HospitalManagementSystem.Application.DTOs.Receptionist;
+using HospitalManagementSystem.Application.Services.Receptionist;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HospitalManagementSystem.API.Controllers
@@ -33,6 +33,7 @@ namespace HospitalManagementSystem.API.Controllers
         [HttpPost]
         public async Task<ActionResult<ReceptionistDto>> Create(CreateReceptionistDto dto)
         {
+
             var created = await _receptionistService.CreateReceptionistAsync(dto);
             return CreatedAtAction(nameof(GetById), new { id = created.Id }, created);
         }
@@ -40,6 +41,10 @@ namespace HospitalManagementSystem.API.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(int id, UpdateReceptionistDto dto)
         {
+            if (await _receptionistService.GetReceptionistByIdAsync(id) is null)
+            { 
+                return NotFound();
+            }
             await _receptionistService.UpdateReceptionistAsync(id, dto);
             return NoContent();
         }
@@ -47,6 +52,10 @@ namespace HospitalManagementSystem.API.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
+            if (await _receptionistService.GetReceptionistByIdAsync(id) is null)
+            {
+                return NotFound();
+            }
             await _receptionistService.DeleteReceptionistAsync(id);
             return NoContent();
         }

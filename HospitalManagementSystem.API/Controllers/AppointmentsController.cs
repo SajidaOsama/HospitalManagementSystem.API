@@ -1,5 +1,5 @@
-﻿using HospitalManagementSystem.Application.DTOs;
-using HospitalManagementSystem.Application.Services;
+﻿using HospitalManagementSystem.Application.DTOs.Appointment;
+using HospitalManagementSystem.Application.Services.Appointment;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HospitalManagementSystem.API.Controllers
@@ -40,6 +40,10 @@ namespace HospitalManagementSystem.API.Controllers
         [HttpPut("{id:guid}")]
         public async Task<IActionResult> Update(Guid id, UpdateAppointmentDto dto)
         {
+            if (await _appointmentService.GetAppointmentByIdAsync(id) is null)
+            {
+                return NotFound();
+            }
             await _appointmentService.UpdateAppointmentAsync(id, dto);
             return NoContent();
         }
@@ -47,6 +51,10 @@ namespace HospitalManagementSystem.API.Controllers
         [HttpDelete("{id:guid}")]
         public async Task<IActionResult> Delete(Guid id)
         {
+            if (await _appointmentService.GetAppointmentByIdAsync(id) is null)
+            {
+                return NotFound();
+            }
             await _appointmentService.DeleteAppointmentAsync(id);
             return NoContent();
         }

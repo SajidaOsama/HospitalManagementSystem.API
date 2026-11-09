@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-namespace HospitalManagementSystem.Application.DTOs
+namespace HospitalManagementSystem.Application.DTOs.Doctor
 {
-    public class DoctorDto
+    public class UpdateDoctorDto
     {
         public int Id { get; set; }
         public string Name { get; set; } = string.Empty;

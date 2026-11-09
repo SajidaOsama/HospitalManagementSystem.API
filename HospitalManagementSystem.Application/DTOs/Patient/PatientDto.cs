@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace HospitalManagementSystem.Application.DTOs
+namespace HospitalManagementSystem.Application.DTOs.Patient
 {
     public class PatientDto
     {

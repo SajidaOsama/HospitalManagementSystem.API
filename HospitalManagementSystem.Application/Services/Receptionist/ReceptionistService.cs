@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using HospitalManagementSystem.Application.DTOs;
+using HospitalManagementSystem.Application.DTOs.Receptionist;
 using HospitalManagementSystem.Domain.Entities;
 using HospitalManagementSystem.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
+using ReceptionistEntity = HospitalManagementSystem.Domain.Entities.Receptionist;
 
-namespace HospitalManagementSystem.Application.Services
+namespace HospitalManagementSystem.Application.Services.Receptionist
 {
     public class ReceptionistService : IReceptionistService
     {
@@ -45,7 +46,7 @@ namespace HospitalManagementSystem.Application.Services
 
         public async Task<ReceptionistDto> CreateReceptionistAsync(CreateReceptionistDto dto)
         {
-            var receptionist = new Receptionist
+            var receptionist = new ReceptionistEntity
             {
                 Name = dto.Name,
                 EmployeeCode = dto.EmployeeCode,

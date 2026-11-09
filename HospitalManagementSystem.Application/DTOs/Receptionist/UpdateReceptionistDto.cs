@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-namespace HospitalManagementSystem.Application.DTOs
+namespace HospitalManagementSystem.Application.DTOs.Receptionist
 {
-    public class UpdateDoctorDto
+    public class UpdateReceptionistDto
     {
         public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
-        public string Speciality { get; set; } = string.Empty;
+        public string EmployeeCode { get; set; } = string.Empty;
         public string PhoneNumber { get; set; } = string.Empty;
     }
 }

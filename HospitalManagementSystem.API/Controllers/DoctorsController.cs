@@ -1,5 +1,5 @@
-﻿using HospitalManagementSystem.Application.DTOs;
-using HospitalManagementSystem.Application.Services;
+﻿using HospitalManagementSystem.Application.DTOs.Doctor;
+using HospitalManagementSystem.Application.Services.Doctor;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HospitalManagementSystem.API.Controllers
@@ -40,6 +40,10 @@ namespace HospitalManagementSystem.API.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(int id, UpdateDoctorDto dto)
         {
+            if (await _doctorService.GetDoctorByIdAsync(id) is null)
+            {
+                return NotFound();
+            }
             await _doctorService.UpdateDoctorAsync(id, dto);
             return NoContent();
         }
@@ -47,6 +51,10 @@ namespace HospitalManagementSystem.API.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
+            if (await _doctorService.GetDoctorByIdAsync(id) is null)
+            {
+                return NotFound();
+            }
             await _doctorService.DeleteDoctorAsync(id);
             return NoContent();
         }

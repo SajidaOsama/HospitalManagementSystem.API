@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using HospitalManagementSystem.Application.DTOs;
+using HospitalManagementSystem.Application.DTOs.Doctor;
 using HospitalManagementSystem.Domain.Entities;
 using HospitalManagementSystem.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
+using DoctorEntity = HospitalManagementSystem.Domain.Entities.Doctor;
 
-namespace HospitalManagementSystem.Application.Services
+namespace HospitalManagementSystem.Application.Services.Doctor
 {
     public class DoctorService : IDoctorService
     {
@@ -24,7 +25,7 @@ namespace HospitalManagementSystem.Application.Services
             {
                 Id = d.Id,
                 Name = d.Name,
-                Speciality = d.Speciality, // تم التعديل لتطابق الدومين
+                Speciality = d.Speciality,
                 PhoneNumber = d.PhoneNumber
             });
         }
@@ -45,7 +46,7 @@ namespace HospitalManagementSystem.Application.Services
 
         public async Task<DoctorDto> CreateDoctorAsync(CreateDoctorDto dto)
         {
-            var doctor = new Doctor
+            var doctor = new DoctorEntity
             {
                 Name = dto.Name,
                 Speciality = dto.Speciality,
