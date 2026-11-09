@@ -3,16 +3,16 @@
 A scalable and robust RESTful Web API designed to manage hospital operations efficiently, built using modern .NET development standards.
 
 ##  Tech Stack & Architecture
-- **Framework:** .NET 9 (C#)
+- **Framework:** .NET 10 (C#)
 - **Data Access:** Entity Framework Core (EF Core)
-- **Architecture & Patterns:** Clean Architecture principles, Repository Pattern, and DTOs.
+- **Architecture & Patterns:** Clean Architecture principles and DTOs.
 - **Documentation:** Swagger / OpenAPI
 
 ##  Features
 - Complete CRUD operations for hospital entities (Patients, Doctors, Appointments, etc.)
-- Data transfer security using DTOs (Data Transfer Objects)
-- Clean and decoupled database operations using Repository Pattern
-- Proper HTTP status handling (200, 201, 400, 404, 500)
+- DTOs for request/response data handling and separation of concerns. (Data Transfer Objects)
+- Database operations using Entity Framework Core (EF Core).
+- Proper HTTP status handling (200, 201, 204, 404)
 
 ##  How to Run
 1. Clone the repository:
